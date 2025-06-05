@@ -27,11 +27,12 @@ body {
     }
 
     .navbar a {
+      font-size: 25px;
       float: left;
       display: block;
       color: #f2f2f2;
       text-align: center;
-      padding: 15px 50px;
+      padding: 25px 75px;
       text-decoration: none;
     }
 
@@ -54,20 +55,20 @@ body {
     }
     .p2{
      position: absolute;
-     bottom: -100px;
-     right: 170px;
+     bottom: 225px;
+     right: 450px;
      font-size: 12px;
-     color: #585353;
+     color: #635e5e;
 
       
     }
 
     section {
             background-color:white;
-            margin: 30px auto;
+            margin: 50px auto;
             padding: 30px;
-            width: 90%;
-            max-width: 900px;
+            width: 1000px;
+            height: 550px;
             border-radius: 15px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
@@ -80,17 +81,34 @@ body {
     .img1 {
       border-radius: 10px;
       float: left;
-      margin-right: 20px;
+      margin-left: -75px;
+      border: 2.5px dotted gray ;
     }
     .img2 {
       border-radius: 10px;
       float: right;
-      margin-right: 20px;
+      margin-right: -75px;
+      border: 2.5px dotted gray ;
+    }
+
+    .img3 {
+      border-radius: 10px;
+      float: left;
+      left: -75px;
+      bottom: -1000px;
+      border: 2.5px dotted gray ;
+    }
+
+    .img4 {
+      border-radius: 10px;
+      float: right;
+      margin-right: -75px;
+      border: 2.5px dotted gray ;
     }
 
 
+
     .clearfix::after {
-      width: 1000px;
       content: "";
       display: table;
       clear: both;
@@ -98,7 +116,7 @@ body {
 
     h2 {
       text-align: center;
-      font-size: 28px;
+      font-size: 30px;
     }
 
     .content {
@@ -139,9 +157,14 @@ body {
   <section id="html">
     <h2>成果展示 - HTML</h2>
     <div class="content">
-      <img class="img1" src="HTML1.png" width="100" >
-      <img class="img2" src="HTML2.png" width="100" >
-      <p>HTML是網頁設計的基本，分為三大部分</p>
+      <img class="img1" src="HTML1.png" width="250" >
+      <img class="img2" src="HTML2.png" width="250" >
+      <p>
+        👉連結<br>
+        👉圖片<br>
+        👉表格<br>
+        👉字
+      </p>
       <!-- 可插入程式碼範例或截圖 -->
     </div>
   </section>
@@ -149,6 +172,8 @@ body {
   <!-- CSS 成果 -->
   <section id="css">
     <h2>成果展示 - CSS</h2>
+    <img class="img3" src="css1.png" width="250" >
+      <img class="img4" src="css2.png" width="250" >
     <div class="content">
       <p>這部分展示我如何用 CSS 美化網頁，包括字體樣式、版面設計、顏色、背景、hover 效果等。</p>
     </div>
