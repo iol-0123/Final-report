@@ -18,6 +18,8 @@ body {
 }
 
 
+
+
     .navbar {
       background-color: #585353;
       overflow: hidden;
@@ -94,17 +96,31 @@ body {
     .img3 {
       border-radius: 10px;
       float: left;
-      left: -75px;
-      bottom: -1000px;
-      border: 2.5px dotted gray ;
-    }
-
+      margin-left: -75px;
+      margin-top: 50px; /* 調整這個值來決定下移的距離 */
+      border: 2.5px dotted gray;
+}
     .img4 {
       border-radius: 10px;
       float: right;
       margin-right: -75px;
+      margin-top: 50px;
       border: 2.5px dotted gray ;
     }
+    
+    .div2{
+        text-align: center;
+        }
+
+    .img5 {
+        border-radius: 10px;
+        border: 2.5px dotted gray;
+        display: block;     /* 讓圖片變為區塊元素 */
+        margin-left: 350px;
+        margin-top: 30px;
+    }
+
+
 
 
 
@@ -157,8 +173,8 @@ body {
   <section id="html">
     <h2>成果展示 - HTML</h2>
     <div class="content">
-      <img class="img1" src="HTML1.png" width="250" >
-      <img class="img2" src="HTML2.png" width="250" >
+      <img class="img1" src="HTML1.png" width="240" >
+      <img class="img2" src="HTML2.png" width="240" >
       <p>
         👉連結<br>
         👉圖片<br>
@@ -172,18 +188,58 @@ body {
   <!-- CSS 成果 -->
   <section id="css">
     <h2>成果展示 - CSS</h2>
-    <img class="img3" src="css1.png" width="250" >
-      <img class="img4" src="css2.png" width="250" >
     <div class="content">
-      <p>這部分展示我如何用 CSS 美化網頁，包括字體樣式、版面設計、顏色、背景、hover 效果等。</p>
+      <p>
+        👉背景顏色、字的大小<br>
+        👉區塊<br>
+        👉外框<br>
+        👉位置<br>
+        css可以用來美編整個網頁。
+      </p>
+      <img class="img3" src="css1.png" width="375" >
+      <img class="img4" src="css2.png" width="375" >
     </div>
   </section>
 
   <!-- JavaScript 成果 -->
   <section id="js">
-    <h2>成果展示 - JavaScript</h2>
-    <div class="content">
-      <p>這部分展示我使用 JavaScript 增加互動功能，例如按鈕控制、動態文字顯示、表單驗證等。</p>
+     <div class="div2">
+    <div>
+        <h2>成果展示 - JavaScript</h2>
+        <button onclick="change();">作業-花卉介紹</button>
+        <button onclick="changetoexps();">作業-甜品</button>
+    </div>
+    <br/>
+    <div id="about" style="display: none;">
+        <p>這部分展示我使用 JavaScript 增加互動功能，<br>
+          例如按鈕控制、動態文字顯示、表單驗證等。</p><br>
+        <img class="img5" src="javascript1.png" width="300" height="250">
+    </div>
+    <div id="exps" style="display: none;">
+        <p>這部分展示我使用 JavaScript 增加互動功能，<br>
+          例如按鈕控制、動態文字顯示、表單驗證等。</p><br>
+        <img class="img5" src="javascript2.png" width="300" height="250
+        ">
+    </div>
+    <script>
+        function change(){
+            //先取得
+            let aboutDiv=document.querySelector("#about");
+            let expsDiv=document.querySelector("#exps")
+            //操作 
+            aboutDiv.style.display="block";
+            aboutDiv.style.radius="10px";
+            expsDiv.style.display="none";
+        }
+        function changetoexps(){
+            //先取得
+            let aboutDiv=document.querySelector("#about");
+            let expsDiv=document.querySelector("#exps")
+            //操作
+            aboutDiv.style.display="none";
+            expsDiv.style.display="block";
+        }
+    </script>
     </div>
   </section>
 
@@ -191,7 +247,7 @@ body {
   <section id="Ex">
     <h2>我的心得</h2>
     <div class="content">
-      <p>嘻嘻</p>
+      <p></p>
     </div>
   </section>
 
