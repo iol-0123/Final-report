@@ -5,21 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>期末報告-郭家妤</title>
   <style>
-   @font-face {
-  font-family: '851MkPOP_101';
-  src: url('851MkPOP_101.ttf');
-}
+    @font-face {
+      font-family: '851MkPOP_101';
+      src: url('851MkPOP_101.ttf');
+    }
 
-body {
-  background-color: black;
-  font-family: '851MkPOP_101', "Noto Sans TC", sans-serif;
-  margin: 0;
-  padding: 0;
-}
+    body {
+      background-color: black;
+      font-family: '851MkPOP_101', "Noto Sans TC", sans-serif;
+      margin: 0;
+      padding: 0;
+    }
 
-
-
-
+    /* 導覽列 */
     .navbar {
       background-color: #585353;
       overflow: hidden;
@@ -43,10 +41,49 @@ body {
       color: black;
     }
 
+    .menu-icon {
+      display: none;
+      font-size: 30px;
+      color: white;
+      padding: 20px;
+      cursor: pointer;
+      float: right;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    @media screen and (max-width: 768px) {
+      .navbar a {
+        float: none;
+        display: block;
+        text-align: left;
+        padding: 15px;
+      }
+
+      .menu-icon {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #585353;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+    }
+
     h1 {
       text-align: center;
       margin-top: 20px;
-      font-size: 50px
+      font-size: 50px;
     }
 
     p {
@@ -56,79 +93,76 @@ body {
       margin: 0 auto;
     }
 
-    .p2{
-     position: absolute;
-     bottom: 175px;
-     right: 430px;
-     font-size: 12px;
-     color: #635e5e; 
+    .p2 {
+      position: absolute;
+      bottom: 175px;
+      right: 430px;
+      font-size: 12px;
+      color: #635e5e;
     }
+
     .p3 {
       font-size: 25px;
       text-align: justify;
       padding: 20px;
       margin: 0 auto;
-      line-height: 1.75; /* 增加行距，數字可依需求調整 */
+      line-height: 1.75;
     }
 
     section {
-            background-color:white;
-            margin: 50px auto;
-            padding: 30px;
-            width: 1000px;
-            height: 550px;
-            border-radius: 15px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-        }
+      background-color: white;
+      margin: 50px auto;
+      padding: 30px;
+      width: 90%;
+      max-width: 1000px;
+      height: auto;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
 
     img {
       border-radius: 100px;
       float: left;
       margin-right: 20px;
     }
-    .img1 {
+
+    .img1, .img2, .img3, .img4 {
       border-radius: 10px;
-      float: left;
-      margin-left: -75px;
-      border: 2.5px dotted gray ;
+      border: 2.5px dotted gray;
     }
+
+    .img1 {
+      float: left;
+      margin-left: -20px;
+    }
+
     .img2 {
-      border-radius: 10px;
       float: right;
-      margin-right: -75px;
-      border: 2.5px dotted gray ;
+      margin-right: -20px;
     }
 
     .img3 {
-      border-radius: 10px;
       float: left;
-      margin-left: -75px;
-      margin-top: 50px; /* 調整這個值來決定下移的距離 */
-      border: 2.5px dotted gray;
-}
-    .img4 {
-      border-radius: 10px;
-      float: right;
-      margin-right: -75px;
+      margin-left: -20px;
       margin-top: 50px;
-      border: 2.5px dotted gray ;
     }
-    
-    .div2{
-        text-align: center;
-        }
+
+    .img4 {
+      float: right;
+      margin-right: -20px;
+      margin-top: 50px;
+    }
+
+    .div2 {
+      text-align: center;
+    }
 
     .img5 {
-        border-radius: 10px;
-        border: 2.5px dotted gray;
-        display: block;     /* 讓圖片變為區塊元素 */
-        margin-left: 350px;
-        margin-top: 30px;
+      border-radius: 10px;
+      border: 2.5px dotted gray;
+      display: block;
+      margin: 30px auto;
     }
-
-
-
-
 
     .clearfix::after {
       content: "";
@@ -151,11 +185,14 @@ body {
 
   <!-- 導覽列 -->
   <div class="navbar">
-    <a href="#home">首頁</a>
-    <a href="#html">成果-HTML</a>
-    <a href="#css">成果-CSS</a>
-    <a href="#js">成果-JavaScript</a>
-    <a href="#Ex">心得</a>
+    <span class="menu-icon" onclick="toggleMenu()">&#9776;</span>
+    <div class="nav-links" id="navLinks">
+      <a href="#home">首頁</a>
+      <a href="#html">成果-HTML</a>
+      <a href="#css">成果-CSS</a>
+      <a href="#js">成果-JavaScript</a>
+      <a href="#Ex">心得</a>
+    </div>
   </div>
 
   <!-- 首頁 -->
@@ -180,15 +217,14 @@ body {
     <h2>成果展示 - HTML</h2>
     <hr>
     <div class="content">
-      <img class="img1" src="HTML1.png" width="240" >
-      <img class="img2" src="HTML2.png" width="240" >
+      <img class="img1" src="HTML1.png" width="240" alt="HTML 範例 1">
+      <img class="img2" src="HTML2.png" width="240" alt="HTML 範例 2">
       <p>
         👉連結<br>
         👉圖片<br>
         👉表格<br>
         👉字
       </p>
-      <!-- 可插入程式碼範例或截圖 -->
     </div>
   </section>
 
@@ -202,53 +238,31 @@ body {
         👉區塊<br>
         👉外框<br>
         👉位置<br>
-        css可以用來美編整個網頁。
+        CSS 可以用來美編整個網頁。
       </p>
-      <img class="img3" src="css1.png" width="375" >
-      <img class="img4" src="css2.png" width="375" >
+      <img class="img3" src="css1.png" width="375" alt="CSS 範例 1">
+      <img class="img4" src="css2.png" width="375" alt="CSS 範例 2">
     </div>
   </section>
 
   <!-- JavaScript 成果 -->
   <section id="js">
-     <div class="div2">
-    <div>
-        <h2>成果展示 - JavaScript</h2>
-        <hr >
-        <button onclick="change();">作業-花卉介紹</button>
-        <button onclick="changetoexps();">作業-甜品</button>
-    </div>
-    <br/>
-    <div id="about" style="display: none;">
+    <div class="div2">
+      <h2>成果展示 - JavaScript</h2>
+      <hr>
+      <button onclick="change();">作業-花卉介紹</button>
+      <button onclick="changetoexps();">作業-甜品</button>
+      <br/><br/>
+      <div id="about" style="display: none;">
         <p>JavaScript 可以增加互動功能，<br>
-          例如按鈕控制、動態文字顯示、表單驗證等。</p><br>
-        <img class="img5" src="javascript1.png" width="300" height="250">
-    </div>
-    <div id="exps" style="display: none;">
+          例如按鈕控制、動態文字顯示、表單驗證等。</p>
+        <img class="img5" src="javascript1.png" width="300" height="250" alt="JavaScript 花卉介紹">
+      </div>
+      <div id="exps" style="display: none;">
         <p>JavaScript 可以增加互動功能，<br>
-          例如按鈕控制、動態文字顯示、表單驗證等。</p><br>
-        <img class="img5" src="javascript2.png" width="300" height="250
-        ">
-    </div>
-    <script>
-        function change(){
-            //先取得
-            let aboutDiv=document.querySelector("#about");
-            let expsDiv=document.querySelector("#exps")
-            //操作 
-            aboutDiv.style.display="block";
-            aboutDiv.style.radius="10px";
-            expsDiv.style.display="none";
-        }
-        function changetoexps(){
-            //先取得
-            let aboutDiv=document.querySelector("#about");
-            let expsDiv=document.querySelector("#exps")
-            //操作
-            aboutDiv.style.display="none";
-            expsDiv.style.display="block";
-        }
-    </script>
+          例如按鈕控制、動態文字顯示、表單驗證等。</p>
+        <img class="img5" src="javascript2.png" width="300" height="250" alt="JavaScript 甜品展示">
+      </div>
     </div>
   </section>
 
@@ -258,12 +272,33 @@ body {
     <hr>
     <div class="content">
       <p class="p3">
-        在這次基礎網頁設計的課程中，我學會了如何使用 HTML 建立網頁的基本架構、利用 CSS 美化版面，甚至用 JavaScript 增加互動效果。起初我對寫程式感到有點陌生，但隨著一次次練習，從簡單的標籤、排版，到能讓按鈕改變畫面內容，我慢慢體會到網頁設計的樂趣與成就感。
-       <br> 這份期末報告讓我重新整理了整學期所學的內容，也挑戰自己將圖片、按鈕與版面設計結合在一起。雖然在排版與格式上有時會遇到錯誤，但每次修改後看到成果，我都覺得很有收穫。
-
-
+        在這次基礎網頁設計的課程中，我學會了如何使用 HTML 建立網頁的基本架構、利用 CSS 美化版面，甚至用 JavaScript 增加互動效果。起初我對寫程式感到有點陌生，但隨著一次次練習，從簡單的標籤、排版，到能讓按鈕改變畫面內容，我慢慢體會到網頁設計的樂趣與成就感。<br>
+        這份期末報告讓我重新整理了整學期所學的內容，也挑戰自己將圖片、按鈕與版面設計結合在一起。雖然在排版與格式上有時會遇到錯誤，但每次修改後看到成果，我都覺得很有收穫。
+      </p>
     </div>
   </section>
 
+  <!-- JavaScript -->
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("navLinks");
+      menu.classList.toggle("show");
+    }
+
+    function change() {
+      const aboutDiv = document.querySelector("#about");
+      const expsDiv = document.querySelector("#exps");
+      aboutDiv.style.display = "block";
+      aboutDiv.style.borderRadius = "10px";
+      expsDiv.style.display = "none";
+    }
+
+    function changetoexps() {
+      const aboutDiv = document.querySelector("#about");
+      const expsDiv = document.querySelector("#exps");
+      aboutDiv.style.display = "none";
+      expsDiv.style.display = "block";
+    }
+  </script>
 </body>
 </html>
